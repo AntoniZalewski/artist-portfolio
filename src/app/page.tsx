@@ -174,7 +174,7 @@ export default function ArtistPortfolio() {
         <div className="container mx-auto px-4">
           <blockquote className="text-xl italic font-semibold text-gray-900 dark:text-gray-300 text-center">
             <p className="mb-4">
-              "Malarstwo figuratywne obok abstrakcji geometrycznej, teraźniejszość i przeszłość, współ egzystują równorzędnie w przekazie nowej serii obrazów Marcina Zalewskiego. Są to prace, w których elementy mitologiczne obecne są równie mocno jak wątki tematyczne, nawiązujące do historii sztuki. Jednak artysta nie narzuca żadnych ograniczeń w procesie rozszyfrowywania jego obrazów, wypełnionych wzajemnie nakładającymi się postaciami, płaszczyznami kolorów i figurami geometrycznymi, pozostawiając w ten sposób widzowi przestrzeń dla indywidualnego odbioru różnych kompozycji i odszukiwania w sobie indywidualnych linków, wdzięcznie spajających prezentowane wątki."
+              "Malarstwo figuratywne obok abstrakcji geometrycznej, teraźniejszość i przeszłość, współegzystują równorzędnie w przekazie nowej serii obrazów Marcina Zalewskiego. Są to prace, w których elementy mitologiczne obecne są równie mocno jak wątki tematyczne, nawiązujące do historii sztuki. Jednak artysta nie narzuca żadnych ograniczeń w procesie rozszyfrowywania jego obrazów, wypełnionych wzajemnie nakładającymi się postaciami, płaszczyznami kolorów i figurami geometrycznymi, pozostawiając w ten sposób widzowi przestrzeń dla indywidualnego odbioru różnych kompozycji i odszukiwania w sobie indywidualnych linków, wdzięcznie spajających prezentowane wątki."
             </p>
             <footer className="text-gray-600 dark:text-gray-400">
               Alberto Dambruoso (tłumaczenie: Barbara Czechmeszyńska - Skowron)

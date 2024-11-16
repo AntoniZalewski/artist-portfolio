@@ -31,13 +31,13 @@ export function ImageModal({ imageUrl, title, description, onClose }: ImageModal
         {/* Guzik zamknięcia */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-white bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-75 z-10"
+          className="absolute top-4 right-4 text-black bg-gray-200 p-2 rounded-full hover:bg-gray-300 z-10"
         >
           <X size={24} />
         </button>
 
         {/* Obraz */}
-        <div className="flex justify-center items-center bg-black">
+        <div className="flex justify-center items-center bg-white">
           <Image
             src={imageUrl}
             alt={title || 'Image'}
