@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
-import { Phone, Mail, Facebook, Instagram, X, Sun, Moon } from 'lucide-react'
+import { Phone, Mail, Facebook, Instagram, Sun, Moon } from 'lucide-react'
 import { ImageModal } from '../components/ui/ImageModal'
 
 interface Painting {
