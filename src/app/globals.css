@@ -71,3 +71,23 @@ body {
   }
 }
 
+@layer base {
+  @supports (view-transition-name: none) {
+    ::view-transition-group(active-image) {
+      animation-duration: 0.5s;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    ::view-transition-old(active-image),
+    ::view-transition-new(active-image) {
+      mix-blend-mode: normal;
+      animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-timing-function: ease-in-out;
+    }
+  }
+}
+

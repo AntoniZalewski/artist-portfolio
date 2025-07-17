@@ -1,61 +1,91 @@
-import { useEffect } from 'react'
-import Image from 'next/image'
-import { X } from 'lucide-react'
+// src/components/ui/ImageModal.tsx
+'use client'
 
-interface ImageModalProps {
-  imageUrl: string
-  title?: string
-  description?: string
-  onClose: () => void
+import Image from 'next/image'
+import { motion, AnimatePresence } from 'framer-motion'
+import { cn } from '@/lib/utils'
+import type { Painting, WorkspacePhoto } from '@/lib/data'
+
+const descriptionVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.35, duration: 0.4, ease: 'easeOut' },
+  },
 }
 
-export function ImageModal({ imageUrl, title, description, onClose }: ImageModalProps) {
-  // Zamknięcie na klawisz Escape
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
-    }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [onClose])
+function isPainting(image: any): image is Painting {
+  return image && 'title' in image
+}
+
+export function ImageModal({ selectedImage, onClose, isWarmingUp }: ImageModalProps) {
+  const useLayoutAnimation = selectedImage ? isPainting(selectedImage) : false;
 
   return (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50"
-      onClick={onClose}
-    >
-      <div
-        className="relative bg-white rounded-lg shadow-lg overflow-hidden max-h-[90%] w-full max-w-5xl mx-4"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Guzik zamknięcia */}
-        <button
+    <AnimatePresence>
+      {selectedImage && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+          className={cn(
+            "fixed inset-0 z-[60] flex items-center justify-center p-4",
+            isWarmingUp && "opacity-0 pointer-events-none"
+          )}
           onClick={onClose}
-          className="absolute top-4 right-4 text-black bg-gray-200 p-2 rounded-full hover:bg-gray-300 z-10"
         >
-          <X size={24} />
-        </button>
-
-        {/* Obraz */}
-        <div className="flex justify-center items-center bg-white">
-          <Image
-            src={imageUrl}
-            alt={title || 'Image'}
-            width={1920}
-            height={1080}
-            className="object-contain max-h-[75vh] w-full"
-            priority
-          />
-        </div>
-
-        {/* Opis */}
-        {(title || description) && (
-          <div className="p-4 bg-white max-h-[20vh] overflow-y-auto">
-            {title && <h3 className="text-2xl font-semibold text-center mb-2">{title}</h3>}
-            {description && <p className="text-sm text-gray-600 text-center">{description}</p>}
+          <div className="relative" onClick={(e) => e.stopPropagation()}>
+            <div className="inline-flex flex-col">
+              <motion.div
+                layoutId={useLayoutAnimation ? `card-${selectedImage.id}` : undefined}
+                initial={useLayoutAnimation ? {} : { scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0, transition: { duration: 0.2 } }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="rounded-t-lg bg-card shadow-2xl overflow-hidden [transform:translateZ(0)] [backface-visibility:hidden] [will-change:transform,opacity]"
+              >
+                {/* Ten wrapper dodaje płynne pojawianie się samego obrazu, maskując "buforowanie" */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                >
+                  <Image
+                    src={selectedImage.imageUrl}
+                    alt={isPainting(selectedImage) ? selectedImage.title : 'Zdjęcie z pracowni'}
+                    width={selectedImage.width}
+                    height={selectedImage.height}
+                    // Zwiększamy max-h, aby wysokie obrazy były większe
+                    className="object-contain w-auto h-auto max-w-[95vw] max-h-[90vh] rounded-t-lg"
+                    priority
+                  />
+                </motion.div>
+              </motion.div>
+              
+              {isPainting(selectedImage) && (
+                <motion.div
+                  className="bg-card p-4 rounded-b-lg shadow-2xl [will-change:transform,opacity]"
+                  variants={descriptionVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                >
+                  <h3 className="text-xl font-semibold text-card-foreground">{selectedImage.title}</h3>
+                  <p className="text-sm text-muted-foreground">{selectedImage.description}</p>
+                </motion.div>
+              )}
+            </div>
           </div>
-        )}
-      </div>
-    </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
   )
+}
+
+interface ImageModalProps {
+  selectedImage: Painting | WorkspacePhoto | null
+  onClose: () => void
+  isWarmingUp: boolean
 }
