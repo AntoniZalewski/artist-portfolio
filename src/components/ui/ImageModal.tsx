@@ -15,8 +15,10 @@ const descriptionVariants = {
   },
 }
 
-function isPainting(image: any): image is Painting {
-  return image && 'title' in image
+// POPRAWKA: Zamiast 'any', używamy precyzyjnych typów, co rozwiązuje błąd na Vercelu.
+function isPainting(image: Painting | WorkspacePhoto | null): image is Painting {
+  // Dodajemy sprawdzenie, czy obraz nie jest nullem, dla pełnego bezpieczeństwa.
+  return image !== null && 'title' in image
 }
 
 export function ImageModal({ selectedImage, onClose, isWarmingUp }: ImageModalProps) {
@@ -46,7 +48,6 @@ export function ImageModal({ selectedImage, onClose, isWarmingUp }: ImageModalPr
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="rounded-t-lg bg-card shadow-2xl overflow-hidden [transform:translateZ(0)] [backface-visibility:hidden] [will-change:transform,opacity]"
               >
-                {/* Ten wrapper dodaje płynne pojawianie się samego obrazu, maskując "buforowanie" */}
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -57,7 +58,6 @@ export function ImageModal({ selectedImage, onClose, isWarmingUp }: ImageModalPr
                     alt={isPainting(selectedImage) ? selectedImage.title : 'Zdjęcie z pracowni'}
                     width={selectedImage.width}
                     height={selectedImage.height}
-                    // Zwiększamy max-h, aby wysokie obrazy były większe
                     className="object-contain w-auto h-auto max-w-[95vw] max-h-[90vh] rounded-t-lg"
                     priority
                   />
