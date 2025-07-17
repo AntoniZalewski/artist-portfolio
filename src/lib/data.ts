@@ -17,7 +17,7 @@ export interface WorkspacePhoto {
 }
 
 export const paintings: Painting[] = [
-    { id: 13, title: "UBU", imageUrl: "/paintings/UBU.jpg", description: "akryl na płótnie / 89x40cm / 2024", width: 400, height: 890 },
+    { id: 13, title: "UBU", imageUrl: "/paintings/UBU.jpg", description: "akryl na płótnie / 89x40cm / 2024", width: 890, height: 400 },
     { id: 33, title: "Carpe Diem", imageUrl: "/paintings/CARPE DIEM.jpg", description: "akryl na płótnie / 140x100cm / 2024", width: 1000, height: 1400 },
     { id: 21, title: "Ikigai", imageUrl: "/paintings/IKIGAI.jpg", description: "akryl na płótnie / 80,5x80,5cm / 2024", width: 805, height: 805 },
     { id: 22, title: "Idee fixe", imageUrl: "/paintings/IDEE FIXE.jpg", description: "akryl na płótnie / 81x81cm / 2024", width: 810, height: 810 },
