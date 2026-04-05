@@ -1,8 +1,7 @@
 import type { NextConfig } from "next";
 
-const nextConfig = {
+const nextConfig: NextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['@radix-ui', 'lucide-react']
-}
+};
 
-module.exports = nextConfig
+export default nextConfig;
