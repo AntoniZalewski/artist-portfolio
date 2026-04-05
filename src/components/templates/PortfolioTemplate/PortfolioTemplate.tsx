@@ -63,7 +63,7 @@ export function PortfolioTemplate({ paintings, workspacePhotos }: PortfolioTempl
             />
         </main>
         
-        <footer className="py-32 px-8 border-t border-[#6b757e]/10 flex flex-col md:flex-row items-center justify-between gap-16 bg-[#FBFBFB]">
+        <footer className="py-16 md:py-24 lg:py-32 px-6 md:px-8 border-t border-[#6b757e]/10 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-16 bg-[#FBFBFB]">
             <div className="flex flex-col space-y-6">
                <span className="font-playfair text-3xl font-bold uppercase tracking-tighter text-[#6b757e]">
                   Marcin Zalewski
