@@ -4,6 +4,9 @@
 
 @layer base {
   :root {
+    --font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    --font-playfair: "Playfair Display", Georgia, "Times New Roman", serif;
+
     /* Modern Gallery Palette - Enhanced with Dominant Image Slate (#6b757e) */
     --background: 0 0% 98.4%;      /* #FBFBFB base */
     
