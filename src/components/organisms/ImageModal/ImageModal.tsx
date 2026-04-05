@@ -39,7 +39,7 @@ export function ImageModal({ pool, currentIndex, onClose, setIndex }: ImageModal
     setIndex((currentIndex - 1 + pool.length) % pool.length)
   }, [pool, currentIndex, setIndex])
 
-  const onDragEnd = (event: any, info: PanInfo) => {
+  const onDragEnd = (_: unknown, info: PanInfo) => {
     const threshold = 100
     if (info.offset.x < -threshold) handleNext()
     else if (info.offset.x > threshold) handlePrev()

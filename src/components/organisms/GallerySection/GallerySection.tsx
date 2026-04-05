@@ -31,7 +31,7 @@ export function GallerySection({ paintings, onPaintingClick }: GallerySectionPro
   const categories = ['Pejzażowe / Poziome', 'Portretowe', 'Kwadratowe']
 
   return (
-    <section id="gallery" className="py-40 bg-[#FBFBFB] text-[#2A3CA7] px-6 selection:bg-[#8C3B79] selection:text-white">
+    <section id="gallery" className="py-40 bg-[#FBFBFB] text-[#6b757e] px-6 selection:bg-[#8C3B79] selection:text-white">
       <div className="max-w-7xl mx-auto space-y-48">
         
         <header className="flex flex-col items-center gap-6 text-center mb-40">
@@ -39,7 +39,7 @@ export function GallerySection({ paintings, onPaintingClick }: GallerySectionPro
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="text-[11px] uppercase font-sans tracking-[0.8em] text-[#006BCD] font-bold"
+            className="text-[11px] uppercase font-sans tracking-[0.8em] font-bold text-[#6b757e]/50"
           >
             Kolekcje Obrazów
           </motion.span>
@@ -47,7 +47,7 @@ export function GallerySection({ paintings, onPaintingClick }: GallerySectionPro
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-5xl md:text-7xl lg:text-8xl font-playfair tracking-tighter font-bold"
+            className="text-5xl md:text-7xl lg:text-8xl font-playfair tracking-tighter font-bold text-[#6b757e]"
           >
             Galeria Prac
           </motion.h2>
@@ -61,11 +61,11 @@ export function GallerySection({ paintings, onPaintingClick }: GallerySectionPro
           return (
             <div key={category} className="space-y-32">
               <div className="flex items-center gap-12">
-                <h3 className="text-sm font-sans uppercase tracking-[0.6em] font-black text-[#2A3CA7] whitespace-nowrap">
+                <h3 className="text-sm font-sans uppercase tracking-[0.6em] font-black text-[#6b757e] whitespace-nowrap">
                    {category}
                 </h3>
-                <div className="h-[1px] w-full bg-[#006BCD]/10" />
-                <span className="text-[10px] font-sans text-[#006BCD]/40 whitespace-nowrap tracking-widest font-bold">
+                <div className="h-[1px] w-full bg-[#6b757e]/10" />
+                <span className="text-[10px] font-sans text-[#6b757e]/40 whitespace-nowrap tracking-widest font-bold">
                     ({items.length} PRAC)
                 </span>
               </div>
