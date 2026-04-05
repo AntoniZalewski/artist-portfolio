@@ -18,6 +18,9 @@ const fontPlayfair = Playfair_Display({
 export const metadata: Metadata = {
   title: "Marcin Zalewski - Artysta",
   description: "Portfolio artysty malarza i rzeźbiarza Marcina Zalewskiego.",
+  icons: {
+    icon: "/favicon-32x32.png",
+  },
 };
 
 export default function RootLayout({
