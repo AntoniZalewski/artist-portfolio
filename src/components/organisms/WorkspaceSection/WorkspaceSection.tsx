@@ -3,6 +3,7 @@
 
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
 import type { WorkspacePhoto } from '@/lib/data'
 
 interface WorkspaceSectionProps {
@@ -67,6 +68,3 @@ export function WorkspaceSection({ photos, onPhotoClick }: WorkspaceSectionProps
     </section>
   )
 }
-
-// Helper to keep the code clean
-import { cn } from '@/lib/utils'

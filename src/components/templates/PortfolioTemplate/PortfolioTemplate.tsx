@@ -18,11 +18,10 @@ interface PortfolioTemplateProps {
 }
 
 export function PortfolioTemplate({ paintings, workspacePhotos }: PortfolioTemplateProps) {
-  // We need to keep track of WHICH POOL we are currently browsing in the modal
-  const [selectedPool, setSelectedPool] = useState<any[] | null>(null)
+  const [selectedPool, setSelectedPool] = useState<(Painting | WorkspacePhoto)[] | null>(null)
   const [selectedIndex, setSelectedIndex] = useState<number>(-1)
 
-  const openModal = (pool: any[], index: number) => {
+  const openModal = (pool: (Painting | WorkspacePhoto)[], index: number) => {
     setSelectedPool(pool)
     setSelectedIndex(index)
   }
@@ -66,23 +65,23 @@ export function PortfolioTemplate({ paintings, workspacePhotos }: PortfolioTempl
         
         <footer className="py-32 px-8 border-t border-[#6b757e]/10 flex flex-col md:flex-row items-center justify-between gap-16 bg-[#FBFBFB]">
             <div className="flex flex-col space-y-6">
-               <span className="font-playfair text-3xl font-bold uppercase tracking-tighter text-[#2A3CA7]">
+               <span className="font-playfair text-3xl font-bold uppercase tracking-tighter text-[#6b757e]">
                   Marcin Zalewski
                </span>
-               <p className="text-[10px] uppercase font-sans tracking-[0.5em] text-[#2A3CA7]/40 max-w-sm font-bold">
+               <p className="text-[10px] uppercase font-sans tracking-[0.5em] text-[#6b757e]/40 max-w-sm font-bold">
                   Kolekcja artystyczna — Wszelkie prawa zastrzeżone. © 2024
                </p>
             </div>
             
             <div className="grid grid-cols-2 gap-16 sm:gap-24">
                 <div className="flex flex-col space-y-4">
-                   <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-[#006BCD]/60">Kontakt</span>
-                   <a href="mailto:kontakt@zalewski.art" className="text-sm font-sans tracking-tight text-[#2A3CA7] hover:text-[#006BCD] transition-colors font-medium">kontakt@zalewski.art</a>
+                   <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-[#6b757e]/60">Kontakt</span>
+                   <a href="mailto:kontakt@zalewski.art" className="text-sm font-sans tracking-tight text-[#6b757e] hover:text-[#8C3B79] transition-colors font-medium">kontakt@zalewski.art</a>
                 </div>
                 <div className="flex flex-col space-y-4">
-                   <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-[#006BCD]/60">Obserwuj</span>
-                   <a href="#" className="text-sm font-sans tracking-tight text-[#2A3CA7] hover:text-[#006BCD] transition-colors font-medium">Instagram</a>
-                   <a href="#" className="text-sm font-sans tracking-tight text-[#2A3CA7] hover:text-[#006BCD] transition-colors font-medium">Facebook</a>
+                   <span className="text-[10px] uppercase tracking-[0.6em] font-bold text-[#6b757e]/60">Obserwuj</span>
+                   <a href="#" className="text-sm font-sans tracking-tight text-[#6b757e] hover:text-[#8C3B79] transition-colors font-medium">Instagram</a>
+                   <a href="#" className="text-sm font-sans tracking-tight text-[#6b757e] hover:text-[#8C3B79] transition-colors font-medium">Facebook</a>
                 </div>
             </div>
         </footer>
