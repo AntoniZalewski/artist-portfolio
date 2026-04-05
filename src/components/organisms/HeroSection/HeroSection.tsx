@@ -7,23 +7,23 @@ import { ScrollIndicator } from '@/components/atoms/ScrollIndicator'
 
 export function HeroSection() {
   return (
-    <section className="relative h-[90vh] flex flex-col justify-center items-center text-center overflow-hidden bg-[#FBFBFB] pt-20">
-      <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24 max-w-screen-2xl h-full">
+    <section className="relative min-h-screen lg:h-[90vh] flex flex-col justify-center items-center text-center overflow-hidden bg-[#FBFBFB] pt-24 pb-12 lg:pt-20 lg:pb-0">
+      <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-10 lg:gap-24 max-w-screen-2xl h-auto lg:h-full">
         
         {/* Left Content */}
         <motion.div 
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left space-y-8"
+          className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-8"
         >
           <div className="space-y-4">
-            <h1 className="font-playfair text-6xl md:text-8xl lg:text-9xl tracking-tighter font-bold leading-[0.85] text-[#6b757e]">
+            <h1 className="font-playfair text-5xl md:text-8xl lg:text-9xl tracking-tighter font-bold leading-[0.85] text-[#6b757e]">
               Marcin <br/> Zalewski
             </h1>
           </div>
 
-          <p className="max-w-md text-base md:text-lg font-sans text-stone-500 leading-relaxed font-light">
+          <p className="max-w-md text-sm md:text-lg font-sans text-stone-500 leading-relaxed font-light">
             Odkryj kolekcję dzieł, gdzie malarstwo figuratywne spotyka się z abstrakcją geometryczną. Współczesna wizualizacja mitologii i historii sztuki.
           </p>
 
@@ -43,7 +43,7 @@ export function HeroSection() {
            initial={{ opacity: 0, scale: 0.98 }}
            animate={{ opacity: 1, scale: 1 }}
            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-           className="flex-[1.2] relative w-full h-full min-h-[500px]"
+           className="flex-[1.2] relative w-full h-[52vh] min-h-[280px] max-h-[460px] lg:h-full lg:min-h-[500px] lg:max-h-none"
         >
           <div className="relative w-full h-full">
             <Image
@@ -57,7 +57,7 @@ export function HeroSection() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+      <div className="absolute bottom-6 lg:bottom-10 left-1/2 -translate-x-1/2 z-20">
          <ScrollIndicator />
       </div>
     </section>

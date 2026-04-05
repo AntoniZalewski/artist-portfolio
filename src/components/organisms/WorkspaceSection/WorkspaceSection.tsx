@@ -13,11 +13,11 @@ interface WorkspaceSectionProps {
 
 export function WorkspaceSection({ photos, onPhotoClick }: WorkspaceSectionProps) {
   return (
-    <section id="workspace" className="py-32 bg-[#FBFBFB] border-t border-[#6b757e]/5">
-      <div className="container mx-auto px-8 max-w-screen-xl">
+    <section id="workspace" className="py-20 md:py-28 lg:py-32 bg-[#FBFBFB] border-t border-[#6b757e]/5">
+      <div className="container mx-auto px-6 md:px-8 max-w-screen-xl">
         
         {/* Centered Header Section */}
-        <div className="flex flex-col items-center text-center space-y-10 mb-24">
+        <div className="flex flex-col items-center text-center space-y-6 md:space-y-10 mb-14 md:mb-24">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,14 +32,14 @@ export function WorkspaceSection({ photos, onPhotoClick }: WorkspaceSectionProps
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="font-playfair text-4xl md:text-5xl lg:text-5xl tracking-tighter text-[#6b757e] leading-tight max-w-5xl font-bold"
+            className="font-playfair text-3xl md:text-5xl lg:text-5xl tracking-tighter text-[#6b757e] leading-tight max-w-5xl font-bold"
           >
             Każdy obraz to proces. Zapraszam do wglądu w moją codzienność – przestrzeń, w której eksperyment spotyka się z dyscypliną warsztatu.
           </motion.h2>
         </div>
 
         {/* Workspace Photo Grid - Showing all 5 photos */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-8">
            {photos.map((photo, index) => (
              <motion.div
                key={photo.id}
