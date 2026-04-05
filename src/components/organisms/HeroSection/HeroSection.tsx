@@ -2,13 +2,10 @@
 'use client'
 
 import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { ScrollIndicator } from '@/components/atoms/ScrollIndicator'
 
 export function HeroSection() {
-  const { scrollY } = useScroll()
-  const y = useTransform(scrollY, [0, 500], [0, 100])
-
   return (
     <section className="relative h-[90vh] flex flex-col justify-center items-center text-center overflow-hidden bg-[#FBFBFB] pt-20">
       <div className="container mx-auto px-6 relative z-10 flex flex-col lg:flex-row items-center gap-16 lg:gap-24 max-w-screen-2xl h-full">

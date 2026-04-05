@@ -6,7 +6,6 @@ import { motion } from 'framer-motion'
 import { cn } from '@/lib/utils'
 
 export function Navigation() {
-  const { scrollY } = (typeof window !== 'undefined') ? { scrollY: window.scrollY } : { scrollY: 0 };
   const [isScrolled, setIsScrolled] = useState(false)
   
   useEffect(() => {
